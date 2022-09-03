@@ -11,8 +11,7 @@ import (
 )
 
 func main() {
-	_, present := os.LookupEnv("AWS_WEB_IDENTITY_TOKEN_FILE")
-	if !present {
+	if _, present := os.LookupEnv("AWS_WEB_IDENTITY_TOKEN_FIKLE"); !present {
 		log.Fatal("AWS_WEB_IDENTITY_TOKEN_FILE not set")
 	}
 	cfg, err := config.LoadDefaultConfig(context.TODO())
