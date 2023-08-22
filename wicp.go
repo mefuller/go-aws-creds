@@ -38,10 +38,6 @@ func main() {
 	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 	defer cancel()
 
-	/*
-		"wget -q -O- --header \"Accept: application/json\" \"https://sts.$${AWS_REGION}.amazonaws.com/?Action=AssumeRoleWithWebIdentity&RoleArn=$${AWS_ROLE_ARN}&WebIdentityToken=$${AWS_WEB_IDENTITY_TOKEN_FILE}&RoleSessionName=app1&Version=2011-06-15\" | jq .AssumeRoleWithWebIdentityResponse.AssumeRoleWithWebIdentityResult.Credentials
-	*/
-
 	awsRegion, ok := os.LookupEnv("AWS_REGION")
 	if !ok {
 		log.Fatal("AWS_REGION not set")
