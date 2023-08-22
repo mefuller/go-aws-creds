@@ -78,6 +78,8 @@ func main() {
 
 	req.URL.RawQuery = q.Encode()
 
+	req.Header.Add("Accept", "application/json")
+
 	resp, err := defaultHttpClient.Do(req)
 	if err != nil {
 		log.Fatal(err)
